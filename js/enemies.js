@@ -1,55 +1,38 @@
 function Shark(game) {
-    this.game = game;
-    this.x = this.game.canvas.width * 0.4;
-    this.y0 = this.game.canvas.height * 0.6;
-    this.y = this.y0;
-    this.img = new Image();
-    this.img.src = 'images/shark-1.png';
-    this.img.frames = 1;
-    this.img.frameIndex = 0;
-    this.w = 150;
-    this.h = 75;
-    this.vy = 1;
+  this.game = game;
+  this.x = this.game.canvas.width * 0.4;
+  this.y = this.game.canvas.height * 0.6;
+  this.img = new Image();
+  this.img.src = 'images/shark-1.png';
+  this.img.frames = 1;
+  this.maxX = this.game.canvas.width;
+  this.maxY = this.game.canvas.height - 100;  
+  this.w = 150;
+  this.h = 75;
+  this.vx = 0.5;
+  this.vy = 0.5;
+}
 
-    this.randomMove();
+ Shark.prototype.draw = function() {
+   this.game.ctx.drawImage(
+     this.img,
+     this.x,
+     this.y,
+     this.w,
+     this.h
+   )
+
+ }
+
+ Shark.prototype.move = function() {
+
+   this.x += this.vx;
+   this.y += this.vy;
+
+  if (this.y + this.vy > this.maxY || this.y + this.vy < 200) {
+    this.vy *= -1;
   }
-
-  
-  Shark.prototype.draw = function() {
-
-    this.game.ctx.drawImage(
-      this.img,
-      this.img.frameIndex * Math.floor(this.img.width / this.img.frames),
-      0,
-      Math.floor(this.img.width / this.img.frames),
-      this.img.height,
-      this.x,
-      this.y,
-      this.w,
-      this.h
-    );
-  
-  };
-  
-  Shark.prototype.randomMove = function() {
-
-
-  };
-  
-  Shark.prototype.move = function() {
-
-       if (this.y <= 215) {
-      this.vy = 1;
-      this.y = 215;
-    } if (this.y >=830) {
-        this.vy = 1;
-        this.y = 830;
-    } if (this.x <= 0) {
-        this.vx = 1;
-        this.x = 0;
-    } if (this.x >= 1150) {
-        this.vx = 1;
-        this.x = 1150;
-    }
-    
-  };
+  if (this.x + this.vx > this.maxX - 150 || this.x + this.vx < 0) {
+    this.vx *= -1;
+  }
+};

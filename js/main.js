@@ -16,6 +16,7 @@ Game.prototype.reset = function() {
   this.background = new Background(this);
   this.player = new Player(this);
   this.shark = new Shark(this);
+  this.squid = new Squid(this);
 };
 
 Game.prototype.clear = function() {
@@ -26,9 +27,11 @@ Game.prototype.draw = function() {
   this.background.draw();
   this.player.draw();
   this.shark.draw();
+  this.squid.draw();
 };
 
 Game.prototype.move = function() {
   this.player.move();
   this.shark.move();
+  this.squid.move();
 };

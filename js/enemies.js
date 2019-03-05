@@ -82,7 +82,117 @@ function Squid(game) {
   if (this.y + this.vy > this.maxY || this.y + this.vy) {
     this.vy *= -1;
   }
-  if (this.x + this.vx > this.maxX || this.x + this.vx < 0) {
+  if (this.x + this.vx > this.maxX) {
     this.vx *= -1;
+    this.img = new Image();
+    this.img.src = 'images/squid-b.png';
+    this.img.frames = 1;
+
+  } else if (this.x + this.vx < 0) {
+    this.vx *= -1;
+    this.img = new Image();
+    this.img.src = 'images/squid.png';
+    this.img.frames = 1;
   }
+};
+
+function Shark2(game) {
+  this.game = game;
+  this.x = this.game.canvas.width * 0.3;
+  this.y = this.game.canvas.height * 0.8;
+  this.img = new Image();
+  this.img.src = 'images/shark-1.png';
+  this.img.frames = 1;
+  this.maxX = this.game.canvas.width - 350;
+  this.maxY = this.game.canvas.height - 200;  
+  this.w = 150;
+  this.h = 75;
+  this.vx = 0.5;
+  this.vy = 0.5;
+}
+
+ Shark2.prototype.draw = function() {
+   this.game.ctx.drawImage(
+     this.img,
+     this.x,
+     this.y,
+     this.w,
+     this.h
+   )
+
+ }
+
+ Shark2.prototype.move = function() {
+
+   this.x += this.vx;
+   this.y += this.vy;
+
+  if (this.y + this.vy > this.maxY - 200 || this.y + this.vy < 400) {
+    this.vy *= -1;
+  }
+
+ if (this.x + this.vx > this.maxX - 300) {
+     this.vx *= -1;
+     this.img = new Image();
+     this.img.src = 'images/shark-5.png';
+     this.img.frames = 1;
+  }
+  
+   else if (this.x + this.vx < 100) {
+    this.vx *= -1;
+    this.img = new Image();
+    this.img.src = 'images/shark-1.png';
+    this.img.frames = 1;
+    }
+};
+
+
+function Squid2 (game) {
+  this.game = game;
+  this.x = this.game.canvas.width * 0.3;
+  this.y = this.game.canvas.height * 0.8;
+  this.img = new Image();
+  this.img.src = 'images/squid-2.png';
+  this.img.frames = 1;
+  this.maxX = this.game.canvas.width - 200;
+  this.maxY = this.game.canvas.height - 100;  
+  this.w = 200;
+  this.h = 100;
+  this.vx = 0.5;
+  this.vy = 0.5;
+}
+
+Squid2.prototype.draw = function() {
+   this.game.ctx.drawImage(
+     this.img,
+     this.x,
+     this.y,
+     this.w,
+     this.h
+   )
+
+ }
+
+ Squid2.prototype.move = function() {
+
+   this.x += this.vx;
+   this.y += this.vy;
+
+  if (this.y + this.vy > this.maxY || this.y + this.vy < 600) {
+    this.vy *= -1;
+  }
+
+ if (this.x + this.vx > this.maxX - 300) {
+     this.vx *= -1;
+     this.img = new Image();
+     this.img.src = 'images/squid-2b.png';
+     this.img.frames = 1;
+  }
+  
+   else if (this.x + this.vx < 300) {
+    this.vx *= -1;
+    this.img = new Image();
+    this.img.src = 'images/squid-2.png';
+    this.img.frames = 1;
+    }
 };

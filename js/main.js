@@ -7,8 +7,11 @@ function Game(canvadId) {
   // this.sharks = [];
   // this.sharksnNumber = [];
 
+
+  this.framesCounter = 0;
   this.enemies = [];
   this.enemiesOn = []
+  this.generate = true;
   
   Game.prototype.start = function() {
     this.interval = setInterval(function() {
@@ -84,12 +87,12 @@ function Game(canvadId) {
    Game.prototype.healthPlayer = function() {
      // var that = this;
      this.ctx.fillStyle = '#1C6177';
-     this.ctx.fillRect (10, 10, 350, 40);
+     this.ctx.fillRect (10, 10, 350, 25);
      this.ctx.fillStyle = '#1DC8B8'; 
-     this.x = 15;
-     this.y = 15;
-     this.width = 340;
-     this.height = 30;
+     this.x = 12;
+     this.y = 12;
+     this.width = 346;
+     this.height = 21;
      this.ctx.fillRect (this.x, this.y, this.width, this.height)
       if (this.bytes() === true) {
 
@@ -116,7 +119,7 @@ function Game(canvadId) {
 
        }
   
-        this.ctx.clearRect (15, 15, 340, 30);
+        this.ctx.clearRect (12, 12, 346, 21);
         this.ctx.save();
         this.ctx.fillStyle = '#1DC8B8'; 
         this.ctx.fillRect (this.x, this.y, this.width, this.height);

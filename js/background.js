@@ -1,8 +1,9 @@
+
 function Background(game) {
     this.game = game;
   
     this.img = new Image();
-    this.img.src = 'images/fondo marino/fondo_marino-1.jpg'
+    this.img.src = 'images/fondo marino/fondo_marino.jpg'
   
     this.x = 0;
     this.y = 0;

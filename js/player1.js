@@ -1,17 +1,16 @@
 function Player(game) {
   this.game = game;
   this.x = this.game.canvas.width * 0.02;
-  this.y = this.game.canvas.height * -0;
+  this.y = this.game.canvas.height * 0;
   this.img = new Image();
-  this.img.src = 'images/diver.png';
+  this.img.src = 'images/fat_diver-2.png';
   this.img.frames = 1;
   this.img.frameIndex = 0;
-  this.w = 100;
-  this.h = 75;
+  this.w = 90;
+  this.h = 50;
   this.vy = 1;
   this.health = 346;
   this.width = 346;
-  // this.bitten = false;
 
   this.setListeners();
 }
@@ -45,12 +44,12 @@ Player.prototype.setListeners = function() {
     } else if (event.keyCode === left ) {
         this.x -= 5;
         this.vx -= 10;
-        this.img.src = 'images/diver-b.png';
+        this.img.src = 'images/fat_diver-2b.png';
         
     } else if (event.keyCode === right) {
         this.x +=5;
         this.vx += 10;
-        this.img.src = 'images/diver.png';
+        this.img.src = 'images/fat_diver-2.png';
     } 
 
   }.bind(this);
@@ -58,9 +57,9 @@ Player.prototype.setListeners = function() {
 
 Player.prototype.move = function() {
 
-     if (this.y <= 180) {
+     if (this.y <= 135) {
     this.vy = 1;
-    this.y = 180;
+    this.y = 135;
   } if (this.y >=680) {
       this.vy = 1;
       this.y = 680;
@@ -74,6 +73,13 @@ Player.prototype.move = function() {
   
 };
 
+Player.prototype.playerWin = function() {
 
+  this.player = 'Player 1';
+  
+  alert (this.player + ' Win!');
+
+
+}
 
 

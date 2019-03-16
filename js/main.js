@@ -26,8 +26,8 @@ Game.prototype.start = function() {
       case 10:
       this.createNewPearls();
       this.createNewTreasure();
-      // this.createNewOxigenBottle();
-      // this.createLifeUp();
+      this.createNewOxigenBottle();
+      this.createLifeUp();
 
       break;
       

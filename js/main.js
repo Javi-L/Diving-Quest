@@ -7,7 +7,6 @@ function Game(canvasId) {
   this.countDown = 1800;
   this.sumCountDown = 0;
   this.reset();
-  
   }
 
 Game.prototype.start = function() {

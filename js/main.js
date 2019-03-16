@@ -4,7 +4,8 @@ function Game(canvasId) {
   this.fps = 60;
   this.time = 0;
   this.counter = 0;
-  this.countDown = 3600;
+  this.countDown = 1800;
+  this.sumCountDown = 0;
   this.reset();
   }
 
@@ -16,6 +17,8 @@ Game.prototype.start = function() {
     this.counter++;
     this.countDown--;
     console.log(this.counter);
+    // var audio = new Audio('/audio/music.mp3');
+    // audio.play();
 
     if (this.time > 2500 && this.counter < 10000) {
       this.time = 0;
@@ -29,41 +32,47 @@ Game.prototype.start = function() {
       break;
       
       case 500: 
-        console.log ('shark1');
+
         this.createNewShark();      
         break;
 
       case 1000:
-        console.log ('shark2');
+
         this.createNewSquid();
+        
         break;
 
         case 1500:
-        console.log ('shark2');
+
         this.createNewPearls();
         break;
 
       case 2000: 
-        console.log ('squid');
+
         this.createNewShark2();
+        this.createNewOxigenBottle();
         break;
 
       case 2500:
-  
-      console.log ('squid2');
+
       this.createNewSquid2();
+      this.createLifeUp();
       break;
 
+      case 8000:
+
+      this.createNewOxigenBottle();
+      break;
+      
       case 10000:
 
       this.createNewTreasure();
-
-    break;
+      this.createLifeUp();
+      break;
 
       default:
 
         break;
-
       }
 
     this.move();
@@ -71,7 +80,11 @@ Game.prototype.start = function() {
     this.oxigenLevel();
     this.playerWin();
 
-    if (this.player.health <= 0 || this.pearls.length > 20) {
+    if (this.time > 15000 && this.counter % 7200 === 0) {
+      this.createLifeUp();
+    }
+
+    if (this.player.health <= 0 /* || this.pearls.length > 20 */) {
 
       this.gameOver();
     }
@@ -82,21 +95,28 @@ Game.prototype.start = function() {
 Game.prototype.reset = function() {
   this.background = new Background(this);
   this.player = new Player(this);
+ 
   this.sharks = [];
   this.squids = [];
   this.sharks2 = [];
   this.squids2 = [];
   this.pearls = [];
   this.treasures = [];
+  this.oxigenBottles = [];
+  this.lifeUps = [];
   this.createNewShark();
   this.createNewSquid();
   this.createNewShark2();
   this.createNewSquid2();
   this.createNewPearls();
   this.createNewTreasure();
+  
+  // this.createNewOxigenBottle();
   this.score = 0;
 
 };
+
+
 
 Game.prototype.createNewShark = function() {
  
@@ -132,6 +152,18 @@ Game.prototype.createNewTreasure = function() {
 
   this.treasures.push (new Treasure(this));
 }
+
+Game.prototype.createNewOxigenBottle = function() {
+
+  this.oxigenBottles.push(new OxigenBottle(this));
+};
+
+Game.prototype.createLifeUp = function() {
+ 
+  this.lifeUps.push(new LifeUp(this));
+  
+};
+
 };
 
 Game.prototype.clear = function() {
@@ -151,6 +183,8 @@ Game.prototype.draw = function() {
   this.squids2.forEach(function(squids2) { squids2.draw(); });
   this.pearls.forEach(function(pearls) { pearls.draw(); });
   this.treasures.forEach(function(treasures) { treasures.draw(); });
+  this.oxigenBottles.forEach(function(oxigenBottles) { oxigenBottles.draw(); });
+  this.lifeUps.forEach(function(lifeUps) { lifeUps.draw(); });
 };
 
 Game.prototype.move = function() {
@@ -171,8 +205,7 @@ Game.prototype.move = function() {
       this.ctx.fillRect (this.x, this.y, this.width, this.height);
       this.ctx.restore();
       this.ctx.fillRect(this.x, this.y, this.width, this.height);
-      console.log(this.player.health);
-     
+          
     }
       
   }.bind(this));
@@ -188,8 +221,7 @@ Game.prototype.move = function() {
       this.ctx.fillRect (this.x, this.y, this.width, this.height);
       this.ctx.restore();
       this.ctx.fillRect(this.x, this.y, this.width, this.height);
-      console.log(this.player.health);
-      
+           
     } 
       
   }.bind(this));
@@ -205,8 +237,7 @@ Game.prototype.move = function() {
       this.ctx.fillRect (this.x, this.y, this.width, this.height);
       this.ctx.restore();
       this.ctx.fillRect(this.x, this.y, this.width, this.height);
-      console.log(this.player.health);
-      
+        
     } 
       
   }.bind(this));
@@ -222,8 +253,7 @@ Game.prototype.move = function() {
       this.ctx.fillRect (this.x, this.y, this.width, this.height);
       this.ctx.restore();
       this.ctx.fillRect(this.x, this.y, this.width, this.height);
-      console.log(this.player.health);
-      
+       
     }
       
   }.bind(this));
@@ -251,6 +281,49 @@ Game.prototype.move = function() {
       this.treasures.splice(this.treasureIndex, 1);
       
     } 
+      
+  }.bind(this));
+
+  this.oxigenBottles.forEach(function(oxigenBottle) {
+
+    this.oxigenBottleIndex = this.oxigenBottles.indexOf(oxigenBottle, 0);
+
+    if (this.collectItems(oxigenBottle) === true) {
+
+      this.sumCountDown += 1800;
+      this.oxigenBottles.splice(this.oxigenBottleIndex, 1);
+      
+    } 
+      
+  }.bind(this));
+
+  this.lifeUps.forEach(function(lifeUp) {
+
+    this.lifeUpIndex = this.lifeUps.indexOf(lifeUp, 0);
+
+
+    if (this.collectItems(lifeUp) === true && this.player.health < 245) {
+
+      this.player.health += 100;
+      this.player.width = this.player.health;
+      this.ctx.clearRect (12, 12, 346, 21);
+      this.ctx.fillStyle = '#1DC8B8'; 
+      this.ctx.fillRect (this.x, this.y, this.width, this.height);
+      this.ctx.restore();
+      this.ctx.fillRect(this.x, this.y, this.width, this.height);
+      this.lifeUps.splice(this.lifeUpIndex, 1);
+      
+    } else if (this.collectItems(lifeUp) === true && this.player.health > 245) {
+
+      this.player.health = 346;
+      this.player.width = this.player.health;
+      this.ctx.clearRect (12, 12, 346, 21);
+      this.ctx.fillStyle = '#1DC8B8'; 
+      this.ctx.fillRect (this.x, this.y, this.width, this.height);
+      this.ctx.restore();
+      this.ctx.fillRect(this.x, this.y, this.width, this.height);
+      this.lifeUps.splice(this.lifeUpIndex, 1);
+    }
       
   }.bind(this));
  
@@ -286,8 +359,6 @@ Game.prototype.collectItems = function (e) {
     
     return true;
 
-  } else {
-    return false;
   }
 
 };
@@ -307,20 +378,23 @@ Game.prototype.collectItems = function (e) {
 
   Game.prototype.oxigenLevel = function() {
 
-    if (this.countDown < 0) {
+    if (this.actualCountDown < 0) {
       this.gameOver();
     } 
   }
 
   Game.prototype.drawOxigenLevel = function() {
-    this.minutes = this.countDown / 60;
-    this.ctx.font = "bold 30px Orbitron";
-    this.ctx.textAlign = "start";
-    this.ctx.fillStyle = "yellow";
-    this.ctx.fillText(Math.floor(this.minutes), 50, 70);
+    this.actualCountDown = this.countDown + this.sumCountDown;
+    this.seconds = this.actualCountDown / 60;
+    
+    this.ctx.font = 'bold 40px Orbitron';
+    this.ctx.textAlign = 'start';
+    this.ctx.fillStyle = 'rgb(23, 160, 41)';
+    this.ctx.fillText(Math.floor(this.seconds), 36, 80);
+    this.ctx.fillStyle = 'rgb(23, 160, 41)';
 
     if (this.player.y < 145) {
-      this.countDown = 3600;
+      this.countDown = 1860;
     }
   };
 

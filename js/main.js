@@ -16,9 +16,6 @@ Game.prototype.start = function() {
     this.time++;
     this.counter++;
     this.countDown--;
-    console.log(this.counter);
-    // var audio = new Audio('/audio/music.mp3');
-    // audio.play();
 
     if (this.time > 2500 && this.counter < 10000) {
       this.time = 0;

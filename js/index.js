@@ -7,3 +7,4 @@ window.onload = function() {
     audio.play();
   }, 1000);
 };
+

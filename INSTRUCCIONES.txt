@@ -1,0 +1,23 @@
+Objetivo: coger todos los items posibles hasta llegar a los 999 puntos con los que se gana el juego.
+
+Los items son:
+- Perlas. 10 puntos.
+- Cofres. 50 puntos.
+
+La puntuación se dibuja en la parte superior derecha de la pantalla.
+
+Has de controlar que el marcador de cuenta atrás que hay en la parte superior derecha de la pantalla no baje a cero, ya que es el tiempo que el buceador puede aguantar debajo del agua sin ahogarse, al subir a la superficie este contador se resetea a 30 segundos nuevamente.
+
+También has de tener cuidado de no ser mordido por tiburones o demás criaturas, esto resta vida (la barra verdosa que se ve en la parte superior izquierda de la pantalla, sobre el contador de tiempo).
+
+Aleatoriamente irán apareciendo rewards en pantalla:
+
+- Botellas de oxígeno: aumenta la capacidad del buceador de permancer bajo el agua en 30 segundos. Puede aumentarse hasta 90 segundos.
+
+- Estrellas rojas: rellena la vida de jugador si este ha sido mordido.
+
+Para moverte utiliza las teclas de cursores (arriba, abajo, izquierda, derecha).
+
+Estas instrucciones se añadiran al index.html más adelante.
+
+Puedes descargar e instalar la fuente utilizada para el intro.html aquí https://www.tipografias.org/descargar-8344-sf_comic_script_shaded.zip

@@ -111,7 +111,6 @@ Game.prototype.reset = function() {
   this.createNewPearls();
   this.createNewTreasure();
   
-  // this.createNewOxigenBottle();
   this.score = 0;
 
 };

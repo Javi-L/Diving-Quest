@@ -26,8 +26,6 @@ Game.prototype.start = function() {
       case 10:
       this.createNewPearls();
       this.createNewTreasure();
-      this.createNewOxigenBottle();
-      this.createLifeUp();
 
       break;
       
@@ -57,11 +55,6 @@ Game.prototype.start = function() {
 
       this.createNewSquid2();
       this.createLifeUp();
-      break;
-
-      case 8000:
-
-      this.createNewOxigenBottle();
       break;
       
       case 10000:

@@ -12,7 +12,7 @@ También has de tener cuidado de no ser mordido por tiburones o demás criaturas
 
 Aleatoriamente irán apareciendo rewards en pantalla:
 
-- Botellas de oxígeno: aumenta la capacidad del buceador de permancer bajo el agua en 30 segundos. Puede aumentarse hasta 90 segundos.
+- Botellas de oxígeno: aumenta la capacidad del buceador de permancer bajo el agua en 30 segundos. Puede aumentarse hasta 150 segundos.
 
 - Estrellas rojas: rellena la vida de jugador si este ha sido mordido.
 

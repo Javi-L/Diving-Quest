@@ -17,7 +17,7 @@ Game.prototype.start = function() {
     this.counter++;
     this.countDown--;
 
-    if (this.time > 2500 && this.counter < 10000) {
+    if (this.time > 2500 && this.counter < 5001) {
       this.time = 0;
     }
 
@@ -57,7 +57,7 @@ Game.prototype.start = function() {
       this.createLifeUp();
       break;
       
-      case 10000:
+      case 5000:
 
       this.createNewTreasure();
       this.createLifeUp();
@@ -73,7 +73,15 @@ Game.prototype.start = function() {
     this.oxigenLevel();
     this.playerWin();
 
-    if (this.time > 15000 && this.counter % 7200 === 0) {
+    if (this.time > 6000 && this.counter % 5400 === 0) {
+      this.createNewPearls();
+    }
+
+    if (this.time > 6000 && this.counter % 7200 === 0) {
+      this.createNewTreasure();
+    }
+
+    if (this.time > 10000 && this.counter % 9000 === 0) {
       this.createLifeUp();
     }
 

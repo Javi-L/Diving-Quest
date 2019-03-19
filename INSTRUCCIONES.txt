@@ -20,4 +20,4 @@ Para moverte utiliza las teclas de cursores (arriba, abajo, izquierda, derecha).
 
 Estas instrucciones se añadiran al index.html más adelante.
 
-Puedes descargar e instalar la fuente utilizada para el intro.html aquí https://www.tipografias.org/descargar-8344-sf_comic_script_shaded.zip
+Puedes descargar e instalar la fuente utilizada para el index.html aquí https://www.tipografias.org/descargar-8344-sf_comic_script_shaded.zip (Pendiente de implementarlo por web fonts para evitar esto)

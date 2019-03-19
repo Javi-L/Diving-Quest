@@ -73,11 +73,11 @@ Game.prototype.start = function() {
     this.oxigenLevel();
     this.playerWin();
 
-    if (this.time > 6000 && this.counter % 5400 === 0) {
+    if (this.time > 6000 && this.counter % 3600 === 0) {
       this.createNewPearls();
     }
 
-    if (this.time > 6000 && this.counter % 7200 === 0) {
+    if (this.time > 6000 && this.counter % 5400 === 0) {
       this.createNewTreasure();
     }
 
@@ -198,7 +198,7 @@ Game.prototype.move = function() {
 
     if (this.bites(shark) === true) {
 
-      this.player.health -= 1;
+      this.player.health -= 0.5;
       this.player.width = this.player.health;
       this.ctx.clearRect (12, 12, 346, 21);
       this.ctx.fillStyle = '#1DC8B8'; 
@@ -214,7 +214,7 @@ Game.prototype.move = function() {
 
     if (this.bites(squid) === true) {
 
-      this.player.health -= 1;
+      this.player.health -= 0.25;
       this.player.width = this.player.health;
       this.ctx.clearRect (12, 12, 346, 21);
       this.ctx.fillStyle = '#1DC8B8'; 
@@ -230,7 +230,7 @@ Game.prototype.move = function() {
 
     if (this.bites(shark2) === true) {
 
-      this.player.health -= 1;
+      this.player.health -= 0.5;
       this.player.width = this.player.health;
       this.ctx.clearRect (12, 12, 346, 21);
       this.ctx.fillStyle = '#1DC8B8'; 
@@ -246,7 +246,7 @@ Game.prototype.move = function() {
 
     if (this.bites(squid2) === true) {
 
-      this.player.health -= 1;
+      this.player.health -= 0.25;
       this.player.width = this.player.health;
       this.ctx.clearRect (12, 12, 346, 21);
       this.ctx.fillStyle = '#1DC8B8'; 

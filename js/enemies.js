@@ -7,14 +7,14 @@ function Shark(game) {
     this.img.frames = 1;
 
 
-this.randomX = Math.floor((Math.random() * 650) + 170);
-this.randomY = 250;
-this.maxX = this.game.canvas.width - this.randomX;
-this.maxY = this.game.canvas.height - this.randomY;
-this.w = 150;
-this.h = 75;
-this.vx = 2.5;
-this.vy = 2.5;
+    this.randomX = Math.floor((Math.random() * 650) + 170);
+    this.randomY = 250;
+    this.maxX = this.game.canvas.width - this.randomX;
+    this.maxY = this.game.canvas.height - this.randomY;
+    this.w = 150;
+    this.h = 75;
+    this.vx = 2.5;
+    this.vy = 2.5;
   }
   
    Shark.prototype.draw = function() {

@@ -45,3 +45,12 @@ body {
   border-radius: 10px 5px;
   border: solid 2px rgb(173, 113, 207);
 }
+
+@font-face {
+    font-family: 'sf_comic_script_shadedregular';
+    src: url('sf_comic_script_shaded-webfont.woff2') format('woff2'),
+         url('sf_comic_script_shaded-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}

@@ -56,10 +56,10 @@ body {
 } */
 
 @font-face {
-	font-family: "Kimberley";
-	src: url("fonts/sf_comic_script_shaded-webfont.eot");
-	src: url("fonts/sf_comic_script_shaded-webfont?#iefix") format("embedded-opentype"),
-	     url("fonts/sf_comic_script_shaded-webfont.woff") format("woff"),
-	     url("fonts/sf_comic_script_shaded-webfont.ttf") format("truetype"),
-	     url("fonts/sf_comic_script_shaded-webfont.svg#kimberley") format("svg");
+	font-family: "SF Comic Script Shaded";
+	src: url("https://javi-l.github.io/Diving-Quest/fonts/sf_comic_script_shaded-webfont.eot");
+	src: url("https://javi-l.github.io/Diving-Quest/fonts/sf_comic_script_shaded-webfont?#iefix") format("embedded-opentype"),
+	     url("https://javi-l.github.io/Diving-Quest/fonts/sf_comic_script_shaded-webfont.woff") format("woff"),
+	     url("https://javi-l.github.io/Diving-Quest/fonts/sf_comic_script_shaded-webfont.ttf") format("truetype"),
+	     url("https://javi-l.github.io/Diving-Quest/fonts/sf_comic_script_shaded-webfont.svg#kimberley") format("svg");
 }

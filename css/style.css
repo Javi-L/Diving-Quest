@@ -46,11 +46,20 @@ body {
   border: solid 2px rgb(173, 113, 207);
 }
 
-@font-face {
+/* @font-face {
     font-family: 'sf_comic_script_shadedregular';
     src: url('https://javi-l.github.io/Diving-Quest/fonts/sf_comic_script_shaded-webfont.woff2') format('woff2'),
          url('https://javi-l.github.io/Diving-Quest/fonts/sf_comic_script_shaded-webfont.woff') format('woff');
     font-weight: normal;
     font-style: normal;
 
+} */
+
+@font-face {
+	font-family: "Kimberley";
+	src: url("fonts/sf_comic_script_shaded-webfont.eot");
+	src: url("fonts/sf_comic_script_shaded-webfont?#iefix") format("embedded-opentype"),
+	     url("fonts/sf_comic_script_shaded-webfont.woff") format("woff"),
+	     url("fonts/sf_comic_script_shaded-webfont.ttf") format("truetype"),
+	     url("fonts/sf_comic_script_shaded-webfont.svg#kimberley") format("svg");
 }
